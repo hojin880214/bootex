@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor
+ @RequiredArgsConstructor
 public enum Role {
 
     GUEST("ROLE_GUEST", "손님"),

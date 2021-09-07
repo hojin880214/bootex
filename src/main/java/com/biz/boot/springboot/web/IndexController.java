@@ -1,5 +1,6 @@
 package com.biz.boot.springboot.web;
 
+import com.biz.boot.springboot.config.auth.LoginUser;
 import com.biz.boot.springboot.config.auth.dto.SessionUser;
 import com.biz.boot.springboot.service.posts.PostsService;
 import com.biz.boot.springboot.web.dto.PostsResponseDto;
@@ -20,10 +21,8 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
-        System.out.println("====user : "+ user);
         if(user != null){
             model.addAttribute("userName", user.getName());
         }
@@ -37,7 +36,6 @@ public class IndexController {
 
     @GetMapping("/posts/update/{id}")
     public String postsUpdate(@PathVariable Long id, Model model){
-
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("post",dto);
         return "posts-update";
