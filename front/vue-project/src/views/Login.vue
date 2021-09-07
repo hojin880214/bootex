@@ -1,7 +1,7 @@
 <template>
   <div>
     <a id="custom-login-btn" @click="kakaoLogin()">
-        <img src="" alt="login">
+        <img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg" alt="login">
     </a>
     <a id="custom-login-btn" @click="kakaoLogout()">
         <img src="" alt="logout">
